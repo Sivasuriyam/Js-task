@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Search</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    #searchBar {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .product {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="text" id="searchBar" placeholder="Search products..." />
+
+  <div id="productList">
+    <div class="product">Shirt</div>
+    <div class="product">Jeans</div>
+    <div class="product">T-Shirt</div>
+    <div class="product">Shoes</div>
+    <div class="product">Formal Shirt</div>
+    <div class="product">Cap</div>
+  </div>
+
+  <script>
+    const searchBar = document.getElementById("searchBar");
+    const products = document.querySelectorAll(".product");
+
+    searchBar.addEventListener("keyup", function () {
+      const searchValue = searchBar.value.toLowerCase();
+
+      products.forEach(product => {
+        const text = product.textContent.toLowerCase();
+
+        if (text.includes(searchValue)) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+</body>
+</html>

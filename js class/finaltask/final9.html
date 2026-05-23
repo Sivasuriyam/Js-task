@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart System</title>
+</head>
+
+<body>
+
+  <h3>
+    Shirt
+    <button onclick="addToCart('Shirt')">
+      Add
+    </button>
+  </h3>
+
+  <h3>
+    Shoes
+    <button onclick="addToCart('Shoes')">
+      Add
+    </button>
+  </h3>
+
+  <h3>
+    Watch
+    <button onclick="addToCart('Watch')">
+      Add
+    </button>
+  </h3>
+
+  <h2>
+    Cart Count:
+    <span id="count">0</span>
+  </h2>
+
+  <button onclick="removeItem()">
+    Remove Last Item
+  </button>
+
+  <script>
+
+    let cart = [];
+
+    function addToCart(product) {
+
+      // add product
+      cart.push(product);
+
+      // update count
+      document.getElementById("count").innerText =
+        cart.length;
+
+      console.log(cart);
+    }
+
+    function removeItem() {
+
+      // remove last item
+      cart.pop();
+
+      // update count
+      document.getElementById("count").innerText =
+        cart.length;
+
+      console.log(cart);
+    }
+
+  </script>
+
+</body>
+</html>

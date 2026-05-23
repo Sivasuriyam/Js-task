@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add To Cart</title>
+</head>
+
+<body>
+
+  <h3>
+    Shirt
+    <button onclick="addToCart('Shirt')">
+      Add To Cart
+    </button>
+  </h3>
+
+  <h3>
+    Shoes
+    <button onclick="addToCart('Shoes')">
+      Add To Cart
+    </button>
+  </h3>
+
+  <h3>
+    Watch
+    <button onclick="addToCart('Watch')">
+      Add To Cart
+    </button>
+  </h3>
+
+  <h2>
+    Cart Count:
+    <span id="count">0</span>
+  </h2>
+
+  <script>
+
+    let cart = [];
+    let count = 0;
+
+    function addToCart(product) {
+
+      // store product in array
+      cart.push(product);
+
+      // increase count
+      count++;
+
+      // update UI
+      document.getElementById("count").innerText = count;
+
+      console.log(cart);
+
+    }
+
+  </script>
+
+</body>
+</html>

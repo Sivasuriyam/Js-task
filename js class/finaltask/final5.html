@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     *{
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box;
+    }
+    body{
+        height: auto;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+       background-color: aqua;
+    }
+    .new{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+   
+        background:cadetblue ;
+        background: linear-gradient(nulldeg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+       gap: 40px;
+       border: 1px solid black;
+       padding: 20px;
+   
+       justify-content: center;
+    }
+    .new div{
+        width: 400px;
+        height: auto;
+        background-color: white;
+        border: 2px solid rgb(244, 241, 241);
+        padding: 20px;
+        border-radius: 20px 20px 20px 20px;
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+        
+
+    }
+    .new div:hover{
+        transform: scale(0.8);
+        transition: 0.8s;
+        transition-duration: 1s;
+    }
+    .new div img{
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        cursor: pointer;
+    }   
+    p{
+        height: 100px;
+        overflow: auto;
+        text-transform: capitalize;
+    }
+    h3{
+        color: red;
+       background-image: linear-gradient(180deg, red, yellow);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       text-align: center;
+       padding: 10px;
+       cursor: pointer;
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    h1{
+        text-align: center;
+        padding: 20px;
+        color: white;
+        background-image: linear-gradient(180deg, red, yellow);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+    }
+     
+
+</style>
+<body>
+    <div class="new"></div>
+<script>
+        let apiLink="https://fakestoreapi.com/products";    
+        fetch(apiLink)
+.then((jsonData)=>{
+    return jsonData.json(); 
+})
+.then((Data)=>{ 
+    console.log(Data);
+    let newDiv=document.querySelector(".new");  
+    Data.forEach((c,i,t)=>{
+        let newCard=document.createElement("div");  
+        newCard.innerHTML=`
+        <h2>${c.title}</h2> 
+        <img src="${c.image}" alt="${c.title}"/>
+        <p>${c.description}</p>  
+        <h3>${c.price}</h3>
+        `
+        newDiv.appendChild(newCard);
+    });
+});
+    </script>
+</body>
+</html>

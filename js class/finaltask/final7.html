@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contain">
+        <button onclick="filter('electronics')">Electronics</button>
+        <button onclick="filter('jewelery')">Jewelery</button>
+        <button onclick="filter('mens')">Men's Clothing</button>
+        <button onclick="filter('womens')">Women's Clothing</button>
+        <h3 class="electronics">Loptop</h3>
+        <h3 class="electronics">Mobile</h3>
+        <h3 class="jewelery">Ring</h3>
+        <h3 class="mens">Men Shirt</h3>
+        <h3 class="womens">Women Dress</h3>
+    </div>
+    <script>
+       const iteam=document.querySelector("h3");
+         function filter(category){
+          const iteam=document.querySelectorAll("h3");
+          iteam.forEach((item)=>{
+                if(category==="all"){
+                 item.style.display="block";
+                }else if(item.classList.contains(category)){
+                 item.style.display="block";
+                }else{
+                 item.style.display="none";
+                }
+          })
+         }
+
+    </script>
+</body>
+</html>

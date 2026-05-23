@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="one"></div>
+    <script>
+        let apiLink="https://fakestoreapi.com/products";
+fetch(apiLink)
+.then((jsonData)=>{
+    return jsonData.json();
+})
+.then((Data)=>{
+    console.log(Data);
+    let newDiv=document.querySelector(".one");
+    Data.forEach((c,i,t)=>{
+        let newCard=document.createElement("div");
+        newCard.innerHTML=`
+        <h2>${c.title.slice(0, 50)}...</h2>
+        <img src="${c.image}" alt="${c.title}"/>
+        <p>${c.description.slice(0, 100)}...</p>
+        <h3>Price: $${c.price}</h3>
+        `;
+        newDiv.appendChild(newCard);
+    })
+})
+
+    </script>
+</body>
+</html>
